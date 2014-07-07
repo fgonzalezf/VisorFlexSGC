@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<configuration>
+    <title>MAPA DE AMENAZA SÍSMICA NACIONAL</title>
+    <logo>assets/images/logo.png</logo>
+    <style>
+        <colors>0x0,0xcccccc,0x555555,0x333333,0xffffff</colors>
+        <alpha>0.77</alpha>
+        <font name="Verdana"/>
+        <titlefont name="Verdana"/>
+        <subtitlefont name="Verdana"/>
+    </style>
+    <!-- replace the following url with your own geometryservice -->
+    <geometryservice url="http://tasks.arcgisonline.com/ArcGIS/rest/services/Geometry/GeometryServer"/>
+    <widget url="widgets/HeaderController/HeaderControllerWidget.swf" config="widgets/HeaderController/HeaderControllerWidget.xml" left="0" top="0"/>
+    <widget url="widgets/Coordinate/CoordinateWidget.swf" config="widgets/Coordinate/CoordinateWidget.xml" label="Coordenada" left="3" bottom="1"/>
+    <widget url="widgets/Navigation/NavigationWidget.swf" config="widgets/Navigation/NavigationWidget.xml" left="10" top="50"/>
+    <widget url="widgets/MapSwitcher/MapSwitcherWidget.swf" config="widgets/MapSwitcher/MapSwitcherWidget.xml" label="Gestor de mapas" right="20" top="55"/>
+    <map attributionvisible="true" esrilogovisible="false" openhandcursorvisible="false" scalebarvisible="true" scalebar="metric" zoomslidervisible="false" wraparound180="true" addarcgisbasemaps="false" initialextent="-83.13758770977772 3.1988765126918945 -65.00248722189603 13.336376070280108" wkid="4686" top="40" portalurl="https://www.arcgis.com/">
+        <basemaps>
+            <layer type="dynamic" label="Mapa Base Amenaza Sismica" imageformat="png8" url="http://srvags.sgc.gov.co/arcgis/rest/services/Amenaza_Sismica/Mapa_Base_Amenaza_Sismica/MapServer" visible="true"/>
+        </basemaps>
+        <operationallayers>
+            <layer type="dynamic" label="Amenaza Sismica Nacional" imageformat="png8" url="http://srvags.sgc.gov.co/arcgis/rest/services/Amenaza_Sismica/Amenaza_Sismica_Nacional/MapServer" visible="true"/>
+        </operationallayers>
+    </map>
+    <widgetcontainer layout="float">
+        <widget url="widgets/AttributeTable/AttributeTableWidget.swf" config="widgets/AttributeTable/AttributeTableWidget.xml" label="Tabla de Atributos" icon="assets/images/TableOpen32.png"/>
+        <widget url="widgets/Draw/DrawWidget.swf" config="widgets/Draw/DrawWidget.xml" label="Dibujar" icon="assets/images/i_draw2.png"/>
+        <widget url="widgets/Print/PrintWidget.swf" config="widgets/Print/PrintWidget.xml" label="Imprimir" icon="assets/images/i_print.png"/>
+        <widget url="widgets/Locate/LocateWidget.swf" config="widgets/Locate/LocateWidget_2.xml" label="Localizador" icon="assets/images/i_target.png"/>
+        <widget url="widgets/LayerList/LayerListWidget.swf" config="widgets/LayerList/LayerListWidget_3.xml" label="Lista de capas" icon="assets/images/i_layers.png"/>
+        <widget url="widgets/Search/SearchWidget.swf" config="widgets/Search/SearchWidget_1.xml" label="Buscar" icon="assets/images/edit_markertool.png"/>
+    </widgetcontainer>
+    <widgetcontainer paneltype="bottom" initialstate="collapsed">
+        <widget url="widgets/AttributeTable/AttributeTableWidget.swf" config="widgets/AttributeTable/AttributeTableWidget.xml" label="Tabla de atributos" icon="assets/images/TableOpen32.png"/>
+    </widgetcontainer>
+</configuration>

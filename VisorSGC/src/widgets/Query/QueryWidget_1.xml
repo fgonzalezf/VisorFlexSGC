@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<configuration>
+    <layer>http://srvags.sgc.gov.co/arcgis/rest/services/Amenaza_Sismica/Amenaza_Sismica_Nacional/MapServer/0</layer>
+    <query/>
+    <titlefield>NOMDEPTO</titlefield>
+    <linkfield/>
+    <refreshrate/>
+    <zoomscale/>
+    <shareresults>false</shareresults>
+    <orderbyfields>NOMDEPTO ASC</orderbyfields>
+    <fields all="false">
+        <field name="NOMDEPTO" alias="Nombre Departamento"/>
+        <field name="NOMMUN" alias="Nombre Municipio"/>
+        <field name="NOMCAB" alias="Nombre Cabecera Municipal"/>
+        <field name="POINT_X" alias="Longitud"/>
+        <field name="POINT_Y" alias="Latitud"/>
+        <field name="PGA75" alias="PGA75"/>
+        <field name="PGA225" alias="PGA225"/>
+        <field name="PGA475" alias="PGA475"/>
+        <field name="PGA975" alias="PGA975"/>
+        <field name="PGA2475" alias="PGA2475"/>
+        <field name="ESPECTRO_U" alias="Espectro uniforme de amenaza"/>
+        <field name="CURVAS_DE" alias="Curvas de exedencia"/>
+        <field name="DESAGREGAC" alias="Grafica de desagregación"/>
+        <field name="NIVEL" alias="Nivel de amenaza NSR-10"/>
+        <field name="AA" alias="AA"/>
+        <field name="AV" alias="AV"/>
+        <field name="AE" alias="AE"/>
+        <field name="AD" alias="AD"/>
+        <field name="PROYECCION" alias="Población a 2014"/>
+    </fields>
+</configuration>

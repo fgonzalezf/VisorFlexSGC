@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<configuration>  
+    <style>
+        <colors>0x333333,0x33ccff,0xffffab,0xffcc33,0x333333</colors>
+        <alpha>0.8</alpha>
+    </style>       
+</configuration>
+
+<!--
+    See Attribute Table widget documentation at
+    http://links.esri.com/attributetablewidget
+-->
