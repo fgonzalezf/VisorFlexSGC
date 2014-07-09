@@ -1061,7 +1061,7 @@
 
             private function clearMessage():void
             {
-                msgVisible = false;
+                msgVisible = false ;
             }
 
             private function widgetClosedHandler(event:Event):void
