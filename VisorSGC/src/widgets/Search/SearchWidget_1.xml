@@ -25,7 +25,7 @@
                 <field name="ESPECTRO_U" alias="Espectro uniforme de amenaza"/>
                 <field name="CURVAS_DE" alias="Curvas de excedencia"/>
                 <field name="DESAGREGAC" alias="Grafica de desagregación"/>
-                <field name="NIVEL" alias="Nivel de amenaza NSR-10"/>
+                <field name="NIVEL" alias="Nivel de amenaza NSR-10"/>  
                 <field name="AA" alias="AA"/>
                 <field name="AV" alias="AV"/>
                 <field name="AE" alias="AE"/>

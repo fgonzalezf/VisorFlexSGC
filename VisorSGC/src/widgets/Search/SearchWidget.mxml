@@ -817,8 +817,8 @@
                 return defaultSymbol;
             }
 
-            private function configurePopUpInfo(resultAttributes:ResultAttributes):PopUpInfo
-            {
+			private function configurePopUpInfo(resultAttributes:ResultAttributes):PopUpInfo
+			{
 				var popUpInfo:PopUpInfo = new PopUpInfo;
 				
 				popUpInfo.title = resultAttributes.title;
@@ -830,149 +830,156 @@
 				var link2:String = resultAttributes.link2;
 				var linkAlias2:String = resultAttributes.linkAlias2
 				//fgonzalez
-				
-				if (link && !link2)
+				if(link)
 				{
-					var pos:Number = link.length - 4;
-					
-					var sfx:String = link.substr(pos, 4).toLowerCase();
-					var sfx2:String= link.substr(pos, 1).toLowerCase();
-					
-					var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
-					var empty:Boolean = (sfx2 != ".");		
-					if (isImageLink)
+					if (link && !link2)
 					{
-						var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo.imageLinkURL = link;
-						popUpMediaInfo.imageSourceURL = link;
-						popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
-						//queryemptyalias
-					}
-						//fgonzalez
-					else if(empty&&queryemptyalias)
-					{						
-						popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";												
-					}
-					else
-					{
-						var linkText:String = linkAlias ? linkAlias : link;
-						//fgonzalez
-						popUpInfo.description += "<br/><a href='" + link + "'>" + linkText + "</a>";
+						var pos:Number = link.length - 4;
 						
-					}
-					
-				}
-					
-				else if (link2 && !link)
-				{
-					
-					var pos2:Number = link2.length - 4;
-					var sfx:String = link.substr(pos2, 4).toLowerCase();
-					var sfx3:String= link2.substr(pos2, 1).toLowerCase();
-					
-					var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
-					
-					var empty2:Boolean = (sfx3 != ".");
-					if (isImageLink)
-					{
-						var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo.imageLinkURL = link2;
-						popUpMediaInfo.imageSourceURL = link2;
-						popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
-						//queryemptyalias
-					}
-					
-						//fgonzalez
-					else if(empty2&& queryemptyalias2)
-					{						
-						popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>"; 																	
-					}
-					else
-					{
+						var sfx:String = link.substr(pos, 4).toLowerCase();
+						var sfx2:String= link.substr(pos, 1).toLowerCase();
 						
-						var linkText2:String = linkAlias2 ? linkAlias2 : link2;
-						popUpInfo.description += "<br/><a href='" + link2 + "'>" + linkText2 + "</a>";
-					}
-				}
-					
-				else if (link&&link2)
-				{
-					var pos:Number = link.length - 4;					
-					var sfx:String = link.substr(pos, 4).toLowerCase();
-					//fgonzalez
-					var pos2:Number = link2.length - 4;
-					var sfx4:String= link2.substr(pos2, 4).toLowerCase();
-					var sfx2:String= link.substr(pos, 1).toLowerCase();
-					var sfx3:String= link2.substr(pos2, 1).toLowerCase();
-					var isImageLink2:Boolean = (sfx4 == ".jpg") || (sfx4 == ".png") || (sfx4 == ".gif");
-					var empty:Boolean = (sfx2 != ".");
-					var empty2:Boolean = (sfx3 != ".");
-					
-					
-					
-					var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
-					
-					if (!isImageLink2&&isImageLink)
-					{
-						var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo.imageLinkURL = link;
-						popUpMediaInfo.imageSourceURL = link;
-						popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
-					}
-					
-					else if (isImageLink2&&!isImageLink)
-					{
-						var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo.imageLinkURL = link2;
-						popUpMediaInfo.imageSourceURL = link2;
-						popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
-					}
-					else if (isImageLink2&&isImageLink)
-					{
-						var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo.imageLinkURL = link;
-						popUpMediaInfo.imageSourceURL = link;
-						var popUpMediaInfo2:PopUpMediaInfo = new PopUpMediaInfo;
-						popUpMediaInfo2.type = PopUpMediaInfo.IMAGE;
-						popUpMediaInfo2.imageLinkURL = link2;
-						popUpMediaInfo2.imageSourceURL = link2;
-						popUpInfo.popUpMediaInfos = [ popUpMediaInfo,popUpMediaInfo2 ];
-					}
-				
-						
-						//fgonzalez
-					else if((empty&&queryemptyalias) || (empty2&&queryemptyalias2))
-					{
-						if (empty2 && empty==false)
+						var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
+						var empty:Boolean = (sfx2 != ".");		
+						if (isImageLink)
 						{
-							var linkText:String = linkAlias ? linkAlias : link;
-							popUpInfo.description += "<br/><a href='" + link + "'>" + linkText + "</a>";
-							popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>";
+							var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo.imageLinkURL = link;
+							popUpMediaInfo.imageSourceURL = link;
+							popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
+							//queryemptyalias
 						}
-						else if (empty && empty2==false)
-						{
-							var linkText2:String = linkAlias2 ? linkAlias2 : link2;
-							popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";
-							popUpInfo.description += "<br/><a href='" + link2 + "'>" + linkText2 + "</a>";
+							//fgonzalez
+						else if(empty&&queryemptyalias)
+						{						
+							popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";												
 						}
 						else
 						{
-							popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";
-							popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>";
+							var linkText:String = linkAlias ? linkAlias : link;
+							//fgonzalez
+							popUpInfo.description += "<br/><a href='" + link + "'>" + linkText + "</a>";
+							
 						}
 						
-						
 					}
+						
+					else if (link2 && !link)
+					{
+						
+						var pos2:Number = link2.length - 4;
+						var sfx:String = link.substr(pos2, 4).toLowerCase();
+						var sfx3:String= link2.substr(pos2, 1).toLowerCase();
+						var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
+						var empty2:Boolean = (sfx3 != ".");
+						if (isImageLink)
+						{
+							var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo.imageLinkURL = link2;
+							popUpMediaInfo.imageSourceURL = link2;
+							popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
+							//queryemptyalias
+						}
+							//fgonzalez
+						else if(empty2&& queryemptyalias2)
+						{						
+							popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>"; 																	
+						}
+						else
+						{
+							
+							var linkText2:String = linkAlias2 ? linkAlias2 : link2;
+							popUpInfo.description += "<br/><a href='" + link2 + "'>" + linkText2 + "</a>";
+						}
+					}
+						
+					else(link2 && link)
+					{
+						var pos:Number = link.length - 4;					
+						var sfx:String = link.substr(pos, 4).toLowerCase();
+						//fgonzalez
+						var pos2:Number = link2.length - 4;
+						var sfx4:String= link2.substr(pos2, 4).toLowerCase();
+						var sfx2:String= link.substr(pos, 1).toLowerCase();
+						var sfx3:String= link2.substr(pos2, 1).toLowerCase();
+						var isImageLink2:Boolean = (sfx4 == ".jpg") || (sfx4 == ".png") || (sfx4 == ".gif");
+						var empty:Boolean = (sfx2 != ".");
+						var empty2:Boolean = (sfx3 != ".");
+						
+						
+						
+						var isImageLink:Boolean = (sfx == ".jpg") || (sfx == ".png") || (sfx == ".gif");
+						
+						
+						// Dos Imagenes por popup fgonzalez
+						if (!isImageLink2&&isImageLink)
+						{
+							var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo.imageLinkURL = link;
+							popUpMediaInfo.imageSourceURL = link;
+							popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
+						}
+							
+						else if (isImageLink2&&!isImageLink)
+						{
+							var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo.imageLinkURL = link2;
+							popUpMediaInfo.imageSourceURL = link2;
+							popUpInfo.popUpMediaInfos = [ popUpMediaInfo ];
+						}
+						else if (isImageLink2&&isImageLink)
+						{
+							var popUpMediaInfo:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo.imageLinkURL = link;
+							popUpMediaInfo.imageSourceURL = link;
+							var popUpMediaInfo2:PopUpMediaInfo = new PopUpMediaInfo;
+							popUpMediaInfo2.type = PopUpMediaInfo.IMAGE;
+							popUpMediaInfo2.imageLinkURL = link2;
+							popUpMediaInfo2.imageSourceURL = link2;
+							popUpInfo.popUpMediaInfos = [ popUpMediaInfo,popUpMediaInfo2 ];
+						}
+							
+							//fgonzalez
+						else if(queryemptyalias || queryemptyalias2)
+						{
+							if (empty && empty2==false)
+							{
+								var linkText:String = linkAlias ? linkAlias : link;
+								popUpInfo.description += "<br/><a href='" + link + "'>" + linkText + "</a>";
+								popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>";
+							}
+							else if (empty2 && empty==false)
+							{
+								var linkText2:String = linkAlias2 ? linkAlias2 : link2;
+								popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";
+								popUpInfo.description += "<br/><a href='" + link2 + "'>" + linkText2 + "</a>";
+							}
+							else if(empty&& empty)
+							{
+								var linkText:String = linkAlias ? linkAlias : link;
+								popUpInfo.description += "<br/><a href='" + link + "'>" + linkText + "</a>";
+								
+								var linkText2:String = linkAlias2 ? linkAlias2 : link2;
+								
+								popUpInfo.description += "<br/><a href='" + link2 + "'>" + linkText2 + "</a>";
+							}
+							else if(empty==false&& empty==false)
+							{
+								popUpInfo.description += "<br/><b><i>"+ queryemptyalias +"</i></b>";
+								popUpInfo.description += "<br/><b><i>"+ queryemptyalias2 +"</i></b>";
+							}
+							
+						}
+					}
+					
 				}
-
-
-                return popUpInfo;
-            }
+				return popUpInfo;
+			}
 
             private function clear():void
             {
@@ -1061,7 +1068,7 @@
 
             private function clearMessage():void
             {
-                msgVisible = false ;
+                msgVisible = false;
             }
 
             private function widgetClosedHandler(event:Event):void
